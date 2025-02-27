@@ -7,18 +7,21 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import About from './About';
 import Chapters from './Chapters';
 import Events from './Events';
+import Footer from './components/Footer';
+
 function App() {
   return (
     <Router>
-       
-        {/* Routes */}
+      <div className="flex flex-col min-h-screen">
+        <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/units" element={<Chapters/>} />
-          <Route path="/events" element={<Events/>} />
+          <Route path="/units" element={<Chapters />} />
+          <Route path="/events" element={<Events />} />
         </Routes>
-      
+        <Footer />
+      </div>
     </Router>
   );
 }
