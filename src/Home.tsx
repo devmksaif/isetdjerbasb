@@ -8,6 +8,7 @@ import Carousel from "./Carousel";
 import TSYP3 from './assets/ieee_officers2.jpg'
 import TSYP4 from './assets/tsyp4.jpeg'
 import TSYP5 from './assets/tsyp5.jpeg'
+import TSYP6 from './assets/tsyp6.gif'
 import { motion } from "framer-motion";
 
 export default function Home() {
@@ -73,7 +74,8 @@ export default function Home() {
         TSYP2,
         TSYP3,
         TSYP4,
-        TSYP5
+        TSYP5,
+        TSYP6
     ];
     const isStudentBranchTyped = copyEnding.length > endingPart1.length;
 

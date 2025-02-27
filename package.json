@@ -19,6 +19,7 @@
     "aos": "^2.3.4",
     "flowbite-react": "^0.10.2",
     "framer-motion": "^12.4.4",
+    "inter-ui": "^4.1.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-feather": "^2.0.10",

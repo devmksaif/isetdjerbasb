@@ -1,13 +1,17 @@
 import React from 'react';
 import { motion } from "framer-motion";
-import { Linkedin, Twitter, GitHub, Mail } from "react-feather";
+import { Linkedin, Twitter, GitHub, Mail,Facebook,Instagram } from "react-feather";
 
 export default function Footer() {
   const socialLinks = [
-    { icon: <Linkedin />, url: "#" },
-    { icon: <Twitter />, url: "#" },
-    { icon: <GitHub />, url: "#" },
-    { icon: <Mail />, url: "#" }
+    { icon: <Linkedin />, url: "https://www.linkedin.com/company/ieee-iset-djerba-sb/posts/?feedView=all" },
+    { icon: <Instagram />, url: "https://www.instagram.com/ieee.iset.djerba/" },
+    { icon: <Facebook />, url: "https://www.facebook.com/ieee.isetjb/" },
+    { 
+      icon: <Mail />, 
+      url: "mailto:saifmkholy@gmail.com",
+      onClick: () => window.location.href = "mailto:saifmkholy@gmail.com"
+    }
   ];
 
   return (
