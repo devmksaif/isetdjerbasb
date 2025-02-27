@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import AOS from "aos";
 import "aos/dist/aos.css"; // Import AOS styles
+import { Users, Code, Calendar } from 'react-feather';
 
 export default function ChaptersSection() {
   // Initialize AOS
@@ -13,31 +14,19 @@ export default function ChaptersSection() {
 
   const stats = [
     {
-      icon: (
-        <svg fill="#6183d1" width="72px" height="72px" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
-          {/* Your existing SVG path */}
-        </svg>
-      ),
+      icon: <Users className="text-blue-600" size={48} />,
       title: "Active Members",
-      value: "150+",
+      value: "140+",
       description: "Engaged IEEE members"
     },
     {
-      icon: (
-        <svg fill="#6183d1" width="72px" height="72px" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
-          {/* Your existing SVG path */}
-        </svg>
-      ),
+      icon: <Code className="text-blue-600" size={48} />,
       title: "Technical Chapters",
-      value: "4",
+      value: "3",
       description: "Specialized groups"
     },
     {
-      icon: (
-        <svg fill="#6183d1" width="72px" height="72px" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
-          {/* Your existing SVG path */}
-        </svg>
-      ),
+      icon: <Calendar className="text-blue-600" size={48} />,
       title: "Annual Events",
       value: "20+",
       description: "Technical activities"
