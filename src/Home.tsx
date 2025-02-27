@@ -8,6 +8,7 @@ import Carousel from "./Carousel";
 import TSYP3 from './assets/ieee_officers2.jpg'
 import TSYP4 from './assets/tsyp4.jpeg'
 import TSYP5 from './assets/tsyp5.jpeg'
+import { motion } from "framer-motion";
 
 export default function Home() {
     const openingPhrase = "Welcome to";
@@ -19,8 +20,8 @@ export default function Home() {
     const [isOpeningComplete, setIsOpeningComplete] = useState(false);
     const [isRemoving, setIsRemoving] = useState(false);
 
-    const endingPart1 = "IEEE ISET Djerba ";
-    const endingPart2 = "Student Branch";
+    const endingPart1 = "IEEE ISET Djerba";
+    const endingPart2 = " Student Branch";
 
     useEffect(() => {
         let timer: any;
@@ -79,29 +80,88 @@ export default function Home() {
     return (
         <>
             <div
-                className="relative w-full h-[50vh] flex flex-col justify-center bg-cover bg-center rounded-br-full rounded-bl-full overflow-hidden"
+                className="relative w-full min-h-screen flex flex-col justify-center bg-cover bg-center overflow-hidden"
                 style={{ backgroundImage: `url(${IEEE_COVER})` }}
             >
-                {/* Blurred Overlay */}
-                <div className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm"></div>
+                {/* Enhanced Overlay with Gradient */}
+                <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70 backdrop-blur-sm"></div>
 
                 <NavBar />
 
-                {/* Content */}
-                <div className="relative z-10 flex mt-72 flex-col justify-center items-center h-full">
-                    <div className="w-full max-w-4xl flex flex-col items-start">
-                        <div className="text-[40px] font-bold text-blue-700 p-[1px]">
-                            {copyPhrase}
+                {/* Enhanced Hero Content */}
+                <div className="relative z-10 flex flex-col justify-center items-center min-h-screen px-4 md:px-0">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8 }}
+                        className="w-full max-w-6xl mx-auto text-center"
+                    >
+                        {/* Decorative Element */}
+                        <div className="mb-6">
+                            <div className="w-24 h-1 bg-blue-500 mx-auto rounded-full"></div>
                         </div>
-                        <span className="text-[45px] font-bold text-white [text-shadow:_2px_2px_0px_#1d4ed8]">
-                            {copyEnding.slice(0, endingPart1.length)}
+
+                        {/* Main Title */}
+                        <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+                            <span className="text-blue-500">{copyPhrase}</span>
+                            <br />
+                            <span className="text-white [text-shadow:_2px_2px_4px_rgba(0,0,0,0.5)]">
+                                {copyEnding.slice(0, endingPart1.length)}
+                            </span>
                             {isStudentBranchTyped && (
-                                <span className="text-[55px] font-bold text-blue-700 [text-shadow:_2px_2px_0px_blue_300]">
+                                <span className="text-blue-400 [text-shadow:_2px_2px_4px_rgba(0,0,0,0.5)]">
                                     {copyEnding.slice(endingPart1.length)}
                                 </span>
                             )}
-                        </span>
-                    </div>
+                        </h1>
+
+                        {/* Subtitle */}
+                        <motion.p
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ delay: 0.5 }}
+                            className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto"
+                        >
+                            Empowering students through technology, innovation, and leadership
+                        </motion.p>
+
+                        {/* CTA Buttons */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.8 }}
+                            className="flex flex-col sm:flex-row gap-4 justify-center"
+                        >
+                            <button className="px-8 py-3 bg-blue-600 text-white rounded-full font-semibold hover:bg-blue-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-blue-500/50">
+                                Join IEEE
+                            </button>
+                            <button className="px-8 py-3 bg-transparent border-2 border-white text-white rounded-full font-semibold hover:bg-white/10 transform hover:scale-105 transition-all duration-300">
+                                Learn More
+                            </button>
+                        </motion.div>
+
+                        {/* Scroll Indicator */}
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ delay: 1.2 }}
+                            className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+                        >
+                            <div className="animate-bounce">
+                                <svg
+                                    className="w-6 h-6 text-white"
+                                    fill="none"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth="2"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                >
+                                    <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                                </svg>
+                            </div>
+                        </motion.div>
+                    </motion.div>
                 </div>
             </div>
             <Details />
