@@ -1,4 +1,3 @@
-
 import React ,{useState} from "react";
 import LogoIEEE from './assets/ieee.png'
 import { useNavigate } from "react-router-dom";
@@ -16,8 +15,13 @@ export default function NavBar() {
         setIsMenuOpen(false);
     }
 
-    function handleChaptersNavigation() {
-        navigate("/chapters");
+    function handleUnitsNavigation() {
+        navigate("/units");
+        setIsMenuOpen(false);
+    }
+
+    function handleEventsNavigation() {
+        navigate("/events");
         setIsMenuOpen(false);
     }
 
@@ -48,18 +52,19 @@ export default function NavBar() {
                         <button onClick={handleAboutNavigation} className="font-semibold text-gray-700 hover:text-[#00629B] hover:scale-105 transition-all duration-300">
                             ABOUT US
                         </button>
-                        <button onClick={handleChaptersNavigation} className="font-semibold text-gray-700 hover:text-[#00629B] hover:scale-105 transition-all duration-300">
-                            CHAPTERS
-                        </button>
-                        <button className="font-semibold text-gray-700 hover:text-[#00629B] hover:scale-105 transition-all duration-300">
+                        <button onClick={handleUnitsNavigation} className="font-semibold text-gray-700 hover:text-[#00629B] hover:scale-105 transition-all duration-300">
                             UNITS
+                        </button>
+                        <button onClick={handleEventsNavigation} className="font-semibold text-gray-700 hover:text-[#00629B] hover:scale-105 transition-all duration-300">
+                            EVENTS
                         </button>
                     </div>
                 </div>
 
                 {/* Register Button */}
-                <button className="hidden md:block relative rounded-full bg-blue-500 px-4 py-2 font-mono font-bold text-white transition-colors duration-300 ease-linear before:absolute before:right-1/2 before:top-1/2 before:-z-[1] before:h-3/4 before:w-2/3 before:origin-bottom-left before:-translate-y-1/2 before:translate-x-1/2 before:animate-ping before:rounded-full before:bg-blue-500 hover:bg-blue-700 hover:before:bg-blue-700">
-                    Register
+                <button className="hidden md:block relative overflow-hidden rounded-full bg-gradient-to-r from-blue-500 to-blue-600 px-6 py-2.5 font-mono font-bold text-white transition-all duration-300 hover:from-blue-600 hover:to-blue-700 hover:shadow-lg hover:shadow-blue-500/50 hover:scale-105 active:scale-95">
+                    <span className="relative z-10">Register</span>
+                    <span className="absolute inset-0 bg-white opacity-0 hover:opacity-10 transition-opacity duration-300"></span>
                 </button>
 
                 {/* Mobile Navigation Menu */}
@@ -69,14 +74,15 @@ export default function NavBar() {
                             <button onClick={handleAboutNavigation} className="font-semibold text-gray-700 hover:text-[#00629B] transition-all duration-300">
                                 ABOUT US
                             </button>
-                            <button onClick={handleChaptersNavigation} className="font-semibold text-gray-700 hover:text-[#00629B] transition-all duration-300">
-                                CHAPTERS
-                            </button>
-                            <button className="font-semibold text-gray-700 hover:text-[#00629B] transition-all duration-300">
+                            <button onClick={handleUnitsNavigation} className="font-semibold text-gray-700 hover:text-[#00629B] transition-all duration-300">
                                 UNITS
                             </button>
-                            <button className="w-full rounded-full bg-blue-500 px-4 py-2 font-mono font-bold text-white hover:bg-blue-700 transition-colors duration-300">
-                                Register
+                            <button onClick={handleEventsNavigation} className="font-semibold text-gray-700 hover:text-[#00629B] transition-all duration-300">
+                                EVENTS
+                            </button>
+                            <button className="w-full relative overflow-hidden rounded-full bg-gradient-to-r from-blue-500 to-blue-600 px-6 py-2.5 font-mono font-bold text-white hover:from-blue-600 hover:to-blue-700 transition-all duration-300">
+                                <span className="relative z-10">Register</span>
+                                <span className="absolute inset-0 bg-white opacity-0 hover:opacity-10 transition-opacity duration-300"></span>
                             </button>
                         </div>
                     </div>

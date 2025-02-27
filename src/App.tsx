@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import About from './About';
 import Chapters from './Chapters';
+import Events from './Events';
 function App() {
   return (
     <Router>
@@ -14,7 +15,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="chapters" element={<Chapters/>} />
+          <Route path="/units" element={<Chapters/>} />
+          <Route path="/events" element={<Events/>} />
         </Routes>
       
     </Router>
