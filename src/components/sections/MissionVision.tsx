@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import Machine from './assets/machine.svg';
-import Mission from './assets/mission.svg';
+import MACHINE_ICON from '../../assets/machine.svg';
+import MISSION_ICON from '../../assets/mission.svg';
 
 const MissionVision: React.FC = () => {
     return (
@@ -33,7 +33,7 @@ const MissionVision: React.FC = () => {
                         <div className="p-8">
                             <div className="flex items-center mb-6">
                                 <div className="p-3 bg-blue-100 rounded-2xl">
-                                    <img src={Mission} alt="Mission Icon" className="w-16 h-16" />
+                                    <img src={MISSION_ICON} alt="Mission Icon" className="w-16 h-16" />
                                 </div>
                                 <h3 className="text-3xl font-bold text-gray-800 ml-4 bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
                                     Mission
@@ -57,7 +57,7 @@ const MissionVision: React.FC = () => {
                         <div className="p-8">
                             <div className="flex items-center mb-6">
                                 <div className="p-3 bg-blue-100 rounded-2xl">
-                                    <img src={Machine} alt="Vision Icon" className="w-16 h-16" />
+                                    <img src={MACHINE_ICON} alt="Vision Icon" className="w-16 h-16" />
                                 </div>
                                 <h3 className="text-3xl font-bold text-gray-800 ml-4 bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
                                     Vision

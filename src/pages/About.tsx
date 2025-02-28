@@ -1,11 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
-import NavBar from "./NavBar";
-import IEEE_COVER from './assets/ieee_cover.jpg';
-import ChaptersSection from "./ChaptersSection";
-import ChapterItems from "./ChapterItems";
+import NavBar from "../components/layout/NavBar";
+import IEEE_COVER from '../assets/ieee_cover.jpg';
+import DetailsAbout from "../components/sections/DetailsAbout";
 
-export default function Chapters() {
+export default function About() {
     return (
         <>
             <div
@@ -32,9 +31,9 @@ export default function Chapters() {
 
                         {/* Main Title */}
                         <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-                            <span className="text-blue-500">IEEE</span>{" "}
+                            <span className="text-blue-500">About</span>{" "}
                             <span className="[text-shadow:_2px_2px_4px_rgba(0,0,0,0.5)]">
-                                Chapters
+                                Our Branch
                             </span>
                         </h1>
 
@@ -45,8 +44,20 @@ export default function Chapters() {
                             transition={{ delay: 0.5 }}
                             className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto"
                         >
-                            Discover our specialized technical communities and their innovative initiatives
+                            Learn about our mission, vision, and the team behind IEEE ISET Djerba
                         </motion.p>
+
+                        {/* CTA Button */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.8 }}
+                            className="flex justify-center"
+                        >
+                            <button className="px-8 py-3 bg-blue-600 text-white rounded-full font-semibold hover:bg-blue-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-blue-500/50">
+                                Join Our Team
+                            </button>
+                        </motion.div>
 
                         {/* Scroll Indicator */}
                         <motion.div
@@ -73,10 +84,9 @@ export default function Chapters() {
                 </div>
             </div>
 
-            {/* Content Sections with Enhanced Spacing */}
+            {/* Content Section with Enhanced Spacing */}
             <div className="bg-gradient-to-b from-white to-gray-50">
-                <ChaptersSection />
-                <ChapterItems />
+                <DetailsAbout />
             </div>
         </>
     );

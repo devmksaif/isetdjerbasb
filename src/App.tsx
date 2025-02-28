@@ -1,13 +1,13 @@
 import React from 'react';
-import NavBar from './NavBar';
-import Home from './Home';
+import NavBar from './components/layout/NavBar';
+import Home from './pages/Home';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import About from './About';
-import Chapters from './Chapters';
-import Events from './Events';
-import Footer from './components/Footer';
+import About from './pages/About';
+import Chapters from './pages/Chapters';
+import Events from './pages/Events';
+import Footer from './components/common/Footer';
 
 function App() {
   return (

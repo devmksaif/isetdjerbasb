@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import IEEELogo from './assets/ieee.png';
+import IEEE_LOGO from '../../assets/ieee.png';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // Import AOS styles
 import TeamSection from './TeamSection';
@@ -33,7 +33,7 @@ const DetailsAbout = () => {
                             <div className="relative">
                                 <div className="absolute -inset-4 bg-blue-100 rounded-full opacity-50 blur-2xl"></div>
                                 <img
-                                    src={IEEELogo}
+                                    src={IEEE_LOGO}
                                     alt="IEEE Logo"
                                     className="relative w-64 h-64 object-contain rounded-full shadow-xl hover:shadow-2xl transition-shadow duration-300"
                                 />

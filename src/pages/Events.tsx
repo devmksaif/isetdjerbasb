@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
-import NavBar from "./NavBar";
-import IEEE_COVER from './assets/ieee_cover.jpg';
+import NavBar from "../components/layout/NavBar";
+import IEEE_COVER from '../assets/ieee_cover.jpg';
 
 export default function Events() {
     const events = [

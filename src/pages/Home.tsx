@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
-import NavBar from "./NavBar";
-import IEEE_COVER from './assets/ieee_cover.jpg';
-import TSYP1 from './assets/tsyp.jpg'
-import TSYP2 from './assets/ieee_officers.jpg'
-import Details from "./Details";
-import Carousel from "./Carousel";
-import TSYP3 from './assets/ieee_officers2.jpg'
-import TSYP4 from './assets/tsyp4.jpeg'
-import TSYP5 from './assets/tsyp5.jpeg'
-import TSYP6 from './assets/tsyp6.gif'
+import NavBar from "../components/layout/NavBar";
+import IEEE_COVER from '../assets/ieee_cover.jpg';
+import TSYP1 from '../assets/tsyp.jpg'
+import TSYP2 from '../assets/ieee_officers.jpg'
+import Details from "../components/sections/Details";
+import Carousel from "../components/ui/Carousel";
+import TSYP3 from '../assets/ieee_officers2.jpg'
+import TSYP4 from '../assets/tsyp4.jpeg'
+import TSYP5 from '../assets/tsyp5.jpeg'
+import TSYP6 from '../assets/tsyp6.gif'
 import { motion } from "framer-motion";
 
 export default function Home() {

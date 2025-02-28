@@ -1,5 +1,5 @@
 import React ,{useState} from "react";
-import LogoIEEE from './assets/ieee.png'
+import IEEE_LOGO from '../../assets/ieee.png'
 import { useNavigate } from "react-router-dom";
 export default function NavBar() {
     const navigate = useNavigate();
@@ -30,7 +30,7 @@ export default function NavBar() {
             <div className="absolute self-center z-50 top-0 justify-self-center flex bg-white backdrop-blur-sm bg-opacity-90 flex-row gap-10 items-center py-4 justify-between px-4 h-16 mt-10 rounded-full shadow-lg hover:shadow-sm hover:shadow-blue-200/50 w-11/12 md:w-8/12 transition-all duration-300 border border-gray-100">
                 <div className="items-center flex flex-row gap-5">
                     <div>
-                        <img onClick={handleHomeNavigation} src={LogoIEEE} className="cursor-pointer w-20 md:w-28 h-auto hover:scale-110 transition-transform duration-300" alt="IEEE Logo" />
+                        <img onClick={handleHomeNavigation} src={IEEE_LOGO} className="cursor-pointer w-20 md:w-28 h-auto hover:scale-110 transition-transform duration-300" alt="IEEE Logo" />
                     </div>
 
                     {/* Hamburger Menu Button for Mobile */}
