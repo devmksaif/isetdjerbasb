@@ -10,8 +10,10 @@ import TSYP4 from '../assets/tsyp4.jpeg'
 import TSYP5 from '../assets/tsyp5.jpeg'
 import TSYP6 from '../assets/tsyp6.gif'
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
+    const navigate = useNavigate();
     const openingPhrase = "Welcome to";
     const endingPhrase = "IEEE ISET Djerba Student Branch";
     const [copyPhrase, setCopyPhrase] = useState("");
@@ -79,6 +81,10 @@ export default function Home() {
     ];
     const isStudentBranchTyped = copyEnding.length > endingPart1.length;
 
+    function handleJoinNavigation(): void {
+        navigate("/join-us");
+    }
+
     return (
         <>
             <div
@@ -134,10 +140,13 @@ export default function Home() {
                             transition={{ delay: 0.8 }}
                             className="flex flex-col sm:flex-row gap-4 justify-center"
                         >
-                            <button className="px-8 py-3 bg-blue-600 text-white rounded-full font-semibold hover:bg-blue-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-blue-500/50">
+                            <button onClick={handleJoinNavigation} className="px-8 py-3 bg-blue-600 text-white rounded-full font-semibold hover:bg-blue-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-blue-500/50">
                                 Join IEEE
                             </button>
-                            <button className="px-8 py-3 bg-transparent border-2 border-white text-white rounded-full font-semibold hover:bg-white/10 transform hover:scale-105 transition-all duration-300">
+                            <button
+                                onClick={() => navigate('/about')}
+                                className="px-8 py-3 bg-transparent border-2 border-white text-white rounded-full font-semibold hover:bg-white/10 transform hover:scale-105 transition-all duration-300"
+                            >
                                 Learn More
                             </button>
                         </motion.div>

@@ -11,6 +11,15 @@ module.exports = {
       fontFamily: {
         sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
       },
+      animation: {
+        dash: 'dash 3s linear infinite',
+      },
+      keyframes: {
+        dash: {
+          '0%': { 'stroke-dashoffset': '100' },
+          '100%': { 'stroke-dashoffset': '0' },
+        },
+      },
     },
   },
   plugins: [flowbite.plugin()],

@@ -25,6 +25,11 @@ export default function NavBar() {
         setIsMenuOpen(false);
     }
 
+    function handleContactNavigation() {
+        navigate("/contact");
+        setIsMenuOpen(false);
+    }
+
     return (
         <>
             <div className="absolute self-center z-50 top-0 justify-self-center flex bg-white backdrop-blur-sm bg-opacity-90 flex-row gap-10 items-center py-4 justify-between px-4 h-16 mt-10 rounded-full shadow-lg hover:shadow-sm hover:shadow-blue-200/50 w-11/12 md:w-8/12 transition-all duration-300 border border-gray-100">
@@ -58,6 +63,9 @@ export default function NavBar() {
                         <button onClick={handleEventsNavigation} className="font-semibold text-gray-700 hover:text-[#00629B] hover:scale-105 transition-all duration-300">
                             EVENTS
                         </button>
+                        <button onClick={handleContactNavigation} className="font-semibold text-gray-700 hover:text-[#00629B] hover:scale-105 transition-all duration-300">
+                            CONTACT
+                        </button>
                     </div>
                 </div>
 
@@ -79,6 +87,9 @@ export default function NavBar() {
                             </button>
                             <button onClick={handleEventsNavigation} className="font-semibold text-gray-700 hover:text-[#00629B] transition-all duration-300">
                                 EVENTS
+                            </button>
+                            <button onClick={handleContactNavigation} className="font-semibold text-gray-700 hover:text-[#00629B] transition-all duration-300">
+                                CONTACT
                             </button>
                             <button className="w-full relative overflow-hidden rounded-full bg-gradient-to-r from-blue-500 to-blue-600 px-6 py-2.5 font-mono font-bold text-white hover:from-blue-600 hover:to-blue-700 transition-all duration-300">
                                 <span className="relative z-10">Register</span>

@@ -8,7 +8,9 @@ import About from './pages/About';
 import Chapters from './pages/Chapters';
 import Events from './pages/Events';
 import Footer from './components/common/Footer';
-
+import JoinUs from './pages/JoinUs';
+import Contact from './pages/Contact';
+import Calendar from './pages/Calendar';
 function App() {
   return (
     <Router>
@@ -19,6 +21,9 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/units" element={<Chapters />} />
           <Route path="/events" element={<Events />} />
+          <Route path="/join-us" element={<JoinUs />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/calendar" element={<Calendar />} />
         </Routes>
         <Footer />
       </div>
