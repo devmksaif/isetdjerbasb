@@ -54,6 +54,9 @@ export default function NavBar() {
 
                     {/* Desktop Navigation */}
                     <div className="hidden md:flex items-center flex-row justify-evenly gap-10">
+                    <button onClick={handleHomeNavigation} className="font-semibold text-gray-700 hover:text-[#00629B] hover:scale-105 transition-all duration-300">
+                            HOME
+                        </button>
                         <button onClick={handleAboutNavigation} className="font-semibold text-gray-700 hover:text-[#00629B] hover:scale-105 transition-all duration-300">
                             ABOUT US
                         </button>

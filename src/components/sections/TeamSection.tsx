@@ -2,13 +2,21 @@ import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // Import AOS styles
+import Chtorou from '../../assets/mh.jpg'
+import Iyed from '../../assets/iy.jpg'
+import Taha from '../../assets/th.jpg'
+import Chayma from '../../assets/ch.jpg'
+import Ghassen from '../../assets/gh.jpeg'
+import Saif from '../../assets/sq.jpeg'
+import Maryem from '../../assets/mr.jpg'
+import Ahmed from '../../assets/ah.jpg'
 
 // Team Data
 const teamMembers = [
     {
         name: "Chayma Sansa",
-        position: "Chairwomen",
-        avatar: "https://engineering.unl.edu/images/staff/Kayla-Person.jpg", // Replace with actual image URL
+        position: "Chair",
+        avatar: Chayma, // Replace with actual image URL
         socialLinks: {
             linkedin: '#',
             twitter: '#',
@@ -18,7 +26,7 @@ const teamMembers = [
     {
         name: "Iyed Tawila",
         position: "Vicechair",
-        avatar: "https://t3.ftcdn.net/jpg/02/43/12/34/360_F_243123463_zTooub557xEWABDLk0jJklDyLSGl2jrr.jpg", // Replace with actual image URL
+        avatar: Iyed, // Replace with actual image URL
         socialLinks: {
             linkedin: '#',
             twitter: '#',
@@ -28,7 +36,7 @@ const teamMembers = [
     {
         name: "Mariem Souissi",
         position: "General Secretary",
-        avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbIvoj8NtPFJNdYMfV1qxb9lVN4hPd-yLzIQ&s", // Replace with actual image URL
+        avatar:  Maryem, // Replace with actual image URL
         socialLinks: {
             linkedin: '#',
             twitter: '#',
@@ -38,7 +46,7 @@ const teamMembers = [
     {
         name: "Mahmoud Chtourou",
         position: "Human Resources",
-        avatar: "https://media.hswstatic.com/eyJidWNrZXQiOiJjb250ZW50Lmhzd3N0YXRpYy5jb20iLCJrZXkiOiJnaWZcL3BsYXlcLzBiN2Y0ZTliLWY1OWMtNDAyNC05ZjA2LWIzZGMxMjg1MGFiNy0xOTIwLTEwODAuanBnIiwiZWRpdHMiOnsicmVzaXplIjp7IndpZHRoIjo4Mjh9fX0=", // Replace with actual image URL
+        avatar:  Chtorou, // Replace with actual image URL
         socialLinks: {
             linkedin: '#',
             twitter: '#',
@@ -49,7 +57,7 @@ const teamMembers = [
     {
         name: "Saifeddine Makhlouf",
         position: "Webmaster",
-        avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCp_ByMCZW8m0s3KmAbIENDvR2Zc_HkBJyYw&s", // Replace with actual image URL
+        avatar:  Saif, // Replace with actual image URL
         socialLinks: {
             linkedin: '#',
             twitter: '#',
@@ -59,7 +67,27 @@ const teamMembers = [
     {
         name: "Taha Hamrouni",
         position: "Media Manager",
-        avatar: "https://kentuckycounselingcenter.com/wp-content/uploads/2022/01/thinking-man-gf9b9e7a8b_1920.png", // Replace with actual image URL
+        avatar:  Taha, // Replace with actual image URL
+        socialLinks: {
+            linkedin: '#',
+            twitter: '#',
+            github: '#'
+        }
+    },
+    {
+        name: "Ahmed Bouchaa",
+        position: "Treasurer",
+        avatar:  Ahmed, // Replace with actual image URL
+        socialLinks: {
+            linkedin: '#',
+            twitter: '#',
+            github: '#'
+        }
+    },
+    {
+        name: "Ghassen Ajala",
+        position: "Chapter Activity Coordinator",
+        avatar:  Ghassen, // Replace with actual image URL
         socialLinks: {
             linkedin: '#',
             twitter: '#',

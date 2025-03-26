@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ChangeEvent, useState } from "react";
 import { motion } from "framer-motion";
 import NavBar from "../components/layout/NavBar";
 import IEEE_COVER from '../assets/ieee_cover.jpg';
@@ -6,6 +6,64 @@ import { useNavigate } from "react-router-dom";
 
 export default function JoinUs() {
     const navigate = useNavigate();
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        phone: '',
+        studyLevel: '',
+        interests: [],
+        message: ''
+    });
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitSuccess, setSubmitSuccess] = useState(false);
+
+    const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+        const { name, value, type } = e.target;
+        const target = e.target as HTMLInputElement; // Type assertion for checked property
+        
+        if (type === 'checkbox') {
+            let updatedInterests = [...formData.interests];
+            if (target.checked) {
+                updatedInterests.push(target.value as never);
+            } else {
+                updatedInterests = updatedInterests.filter(item => item !== target.value);
+            }
+            setFormData({...formData, interests: updatedInterests});
+        } else {
+            setFormData({...formData, [name]: value});
+        }
+    };
+
+    const handleSubmit = async (e: any ) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+        
+        try {
+            // In a real app, you would send this to your backend API
+            // which would then send the email using a service like SendGrid
+            console.log('Form submitted:', formData);
+            
+            // Simulate API call
+            await new Promise(resolve => setTimeout(resolve, 1500));
+            
+            setSubmitSuccess(true);
+            setFormData({
+                name: '',
+                email: '',
+                phone: '',
+                studyLevel: '',
+                interests: [],
+                message: ''
+            });
+            
+            // Reset success message after 5 seconds
+            setTimeout(() => setSubmitSuccess(false), 5000);
+        } catch (error) {
+            console.error('Error submitting form:', error);
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
 
     return (
         <>
@@ -174,6 +232,167 @@ export default function JoinUs() {
                                 </motion.div>
                             ))}
                         </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Recruitment Form Section */}
+            <section className="py-20 bg-gray-50">
+                <div className="container mx-auto px-4">
+                    <div className="max-w-4xl mx-auto">
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6 }}
+                            className="bg-white rounded-3xl shadow-xl overflow-hidden"
+                        >
+                            <div className="md:flex">
+                                <div className="md:w-1/3 bg-gradient-to-b from-blue-500 to-purple-600 p-8 text-white flex flex-col justify-center">
+                                    <h2 className="text-2xl font-bold mb-4">Join Our Team</h2>
+                                    <p className="mb-6">Fill out this form to apply for membership with IEEE ISET Djerba.</p>
+                                    <div className="flex items-center">
+                                        <div className="mr-4">
+                                            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <p className="font-semibold">Email us at</p>
+                                            <p className="text-sm">saifmkholy@gmail.com</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="md:w-2/3 p-8">
+                                    {submitSuccess && (
+                                        <div className="mb-6 p-4 bg-green-100 text-green-700 rounded-lg">
+                                            Thank you for your application! We'll contact you soon.
+                                        </div>
+                                    )}
+                                    <form onSubmit={handleSubmit}>
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                            <div>
+                                                <label className="block text-gray-700 font-medium mb-2" htmlFor="name">
+                                                    Full Name
+                                                </label>
+                                                <input
+                                                    type="text"
+                                                    id="name"
+                                                    name="name"
+                                                    value={formData.name}
+                                                    onChange={handleChange}
+                                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+                                                    required
+                                                />
+                                            </div>
+                                            <div>
+                                                <label className="block text-gray-700 font-medium mb-2" htmlFor="email">
+                                                    Email Address
+                                                </label>
+                                                <input
+                                                    type="email"
+                                                    id="email"
+                                                    name="email"
+                                                    value={formData.email}
+                                                    onChange={handleChange}
+                                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+                                                    required
+                                                />
+                                            </div>
+                                            <div>
+                                                <label className="block text-gray-700 font-medium mb-2" htmlFor="phone">
+                                                    Phone Number
+                                                </label>
+                                                <input
+                                                    type="tel"
+                                                    id="phone"
+                                                    name="phone"
+                                                    value={formData.phone}
+                                                    onChange={handleChange}
+                                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+                                                    required
+                                                />
+                                            </div>
+                                            <div>
+                                                <label className="block text-gray-700 font-medium mb-2" htmlFor="studyLevel">
+                                                    Study Level
+                                                </label>
+                                                <select
+                                                    id="studyLevel"
+                                                    name="studyLevel"
+                                                    value={formData.studyLevel}
+                                                    onChange={handleChange}
+                                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+                                                    required
+                                                >
+                                                    <option value="">Select your level</option>
+                                                    <option value="1st Year">1st Year</option>
+                                                    <option value="2nd Year">2nd Year</option>
+                                                    <option value="3rd Year">3rd Year</option>
+                                                    <option value="Graduate">Graduate</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        
+                                        <div className="mt-6">
+                                            <label className="block text-gray-700 font-medium mb-2">
+                                                Areas of Interest (Select all that apply)
+                                            </label>
+                                            <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                                                {['Robotics', 'AI', 'Web Dev', 'IoT', 'Cybersecurity', 'Data Science'].map((interest) => (
+                                                    <div key={interest} className="flex items-center">
+                                                        <input
+                                                            type="checkbox"
+                                                            id={interest}
+                                                            name="interests"
+                                                            value={interest}
+                                                            checked={formData.interests.includes(interest as never)}
+                                                            onChange={handleChange}
+                                                            className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                                                        />
+                                                        <label htmlFor={interest} className="ml-2 text-gray-700">
+                                                            {interest}
+                                                        </label>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                        
+                                        <div className="mt-6">
+                                            <label className="block text-gray-700 font-medium mb-2" htmlFor="message">
+                                                Why do you want to join IEEE ISET Djerba?
+                                            </label>
+                                            <textarea
+                                                id="message"
+                                                name="message"
+                                                value={formData.message}
+                                                onChange={handleChange}
+                                                rows={4}
+                                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+                                                required
+                                            ></textarea>
+                                        </div>
+                                        
+                                        <div className="mt-8">
+                                            <button
+                                                type="submit"
+                                                disabled={isSubmitting}
+                                                className={`w-full py-3 px-6 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-300 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
+                                            >
+                                                {isSubmitting ? (
+                                                    <span className="flex items-center justify-center">
+                                                        <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                                        </svg>
+                                                        Processing...
+                                                    </span>
+                                                ) : 'Submit Application'}
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </motion.div>
                     </div>
                 </div>
             </section>

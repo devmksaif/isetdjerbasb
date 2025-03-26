@@ -11,7 +11,21 @@ import TSYP5 from '../assets/tsyp5.jpeg'
 import TSYP6 from '../assets/tsyp6.gif'
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { getToken, onMessage } from "firebase/messaging";
+import { messaging } from "./firebase";
+// Add your Firebase configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyAsUv2gY5vXz2wA_1Y1vdvBmXluiKfKnrI",
+    authDomain: "calliverse-3e2a6.firebaseapp.com",
+    projectId: "calliverse-3e2a6",
+    storageBucket: "calliverse-3e2a6.firebasestorage.app",
+    messagingSenderId: "680626398443",
+    appId: "1:680626398443:web:e139c7f6108f4166080aae",
+    measurementId: "G-D3RNF13R08"
+  };
 
+// Initialize Firebase
+ 
 export default function Home() {
     const navigate = useNavigate();
     const openingPhrase = "Welcome to";
@@ -25,7 +39,18 @@ export default function Home() {
 
     const endingPart1 = "IEEE ISET Djerba";
     const endingPart2 = " Student Branch";
-
+    useEffect(() => {
+        if ("serviceWorker" in navigator) {
+          navigator.serviceWorker
+            .register("/firebase-messaging-sw.js")
+            .then((registration) => {
+              console.log("Service Worker registered with scope:", registration.scope);
+            })
+            .catch((error) => {
+              console.log("Service Worker registration failed:", error);
+            });
+        }
+      }, []);
     useEffect(() => {
         let timer: any;
 
@@ -70,6 +95,24 @@ export default function Home() {
 
         return () => clearInterval(timer);
     }, [indexOpening, indexEnding, isOpeningComplete, isRemoving, copyPhrase, copyEnding]);
+    const requestPermission = async () => {
+        try {
+          const permission = await Notification.requestPermission();
+          if (permission === "granted") {
+            console.log("Notification permission granted.");
+            const token = await getToken(messaging, { vapidKey: "YOUR_VAPID_KEY" });
+            console.log("FCM Token:", token);
+            // Send this token to your server to send notifications to this device
+          } else {
+            console.log("Unable to get permission to notify.");
+          }
+        } catch (error) {
+          console.error("Error getting permission or token:", error);
+        }
+      };
+    useEffect(() => {
+        requestPermission();
+    }, []);
 
     const images = [
         TSYP1,
